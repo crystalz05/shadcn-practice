@@ -44,6 +44,10 @@ export function LoginForm() {
   const { toast } = useToast();
   const router = useRouter();
 
+  const onClickStore = () => {
+    router.push("/store");
+  };
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -73,7 +77,7 @@ export function LoginForm() {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="w-[600px] bg-white p-8 rounded-md shadow-md border py-3 h-[500px]">
+      <div className="w-[400px] bg-white p-8 rounded-md shadow-md border py-3 h-[500px]">
         <h2 className="text-3xl font-bold text-center text-green-600 my-8">
           LOGIN PAGE
         </h2>
@@ -89,7 +93,7 @@ export function LoginForm() {
                     <Input
                       placeholder="Username"
                       {...field}
-                      className="rounded-[7px] border-gray-200 min-h-[60px]"
+                      className="rounded-[7px] border-gray-200 min-h-[50px]"
                     />
                   </FormControl>
                 </FormItem>
@@ -105,7 +109,7 @@ export function LoginForm() {
                       type="password"
                       placeholder="Password"
                       {...field}
-                      className="rounded-[7px] border-gray-200 min-h-[60px]"
+                      className="rounded-[7px] border-gray-200 min-h-[50px]"
                     />
                   </FormControl>
                 </FormItem>
@@ -126,6 +130,11 @@ export function LoginForm() {
           {form.formState.errors.password && (
             <p>{form.formState.errors.password.message}</p>
           )}
+        </div>
+        <div>
+          <Button onClick={onClickStore} variant={"outline"}>
+            Go to store page
+          </Button>
         </div>
       </div>
     </div>
