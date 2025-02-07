@@ -9,6 +9,9 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import NavigationMenuDemo from "./NavigationMenu";
+import Image from "next/image";
+import shirt from "../images/item-shirt.png";
+import { Button } from "../ui/button";
 
 const Store: React.FC = () => {
   return (
@@ -20,7 +23,30 @@ const Store: React.FC = () => {
         <div className="flex flex-wrap justify-around mt-4 overflow-auto max-h-[90vh] shadow">
           {/* <div className="w-[300px] h-[500px] bg-blue-700 m-3"></div> */}
           {[...Array(100)].map((_, i) => (
-            <div key={i} className="w-[300px] h-[400px] bg-blue-700 m-3"></div>
+            <div
+              key={i}
+              className="w-[300px] m-3 flex flex-col p-5 shadow shadow-lg hover:cursor-pointer hover:bg-slate-50 gap-2"
+            >
+              <div className="bg-contain max-h-[250px]">
+                <Image
+                  src={shirt}
+                  alt="item"
+                  className="w-full h-full object-contain"
+                ></Image>
+              </div>
+              <div className="flex flex-col gap-4">
+                <div className="px-2">
+                  <h2 className="text-sm">
+                    Uniquo Basic T-Shirt Oversized Red
+                  </h2>
+                  <h2 className="text-xl font-semibold"> IDR 200.000</h2>
+                  <h2>4.9 - 518 sold</h2>
+                </div>
+                <Button className="bg-orange-400 text-white hover:bg-orange-500 rounded-[5px] w-full">
+                  Add to Cart
+                </Button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
