@@ -58,7 +58,11 @@ const AddStudent: React.FC<AddStudentProps> = ({ onAddStudent }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Add Student</Button>
+        <div className="grid place-items-end">
+          <Button className="mt-2 bg-green-500 text-white hover:bg-green-700">
+            Add Student
+          </Button>
+        </div>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
